@@ -53,6 +53,7 @@ The agent will:
 2. Check each against `ARCHITECTURE.md` for conflicts.
 3. Get your approval on the plan.
 4. Write tests first, then implement.
+5. Spawn subagents when needed. (Should prompt you with the workflow before doing so, but watch your usage just incase)
 
 ### Cleaning up the codebase
 
