@@ -1,6 +1,7 @@
 # Workflow: Add Feature
 
 Use this workflow when the core project loop exists and new functionality is requested.
+This is the default workflow after project creation is complete.
 
 ---
 
