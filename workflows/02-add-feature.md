@@ -85,3 +85,29 @@ Tell the user:
 - Test counts and pass status.
 - Any simplifications made to existing code.
 - Next recommended action.
+
+
+## Subagent Coordination (Multi-Phase Features)
+
+When implementing large features with multiple interconnected sub-components:
+
+1. **Phase Planning** — Break the feature into phase-ordered units; identify blocking dependencies
+2. **Critical Path** — Identify phases that block others; run these sequentially
+3. **Parallel Work** — Run independent phases in parallel to maximize velocity
+4. **Subagent Model** — Each subagent owns one complete feature phase:
+   - Writes tests first (red state)
+   - Implements the feature (green state)
+   - Updates ARCHITECTURE.md with `[IMPLEMENTED]` status
+   - Reports back with test results and any code simplifications discovered
+5. **Integration Tests** — After all phases complete, write end-to-end tests that validate the full feature request
+6. **Final Report** — Summarize which phases completed, test counts/pass status, and any architectural simplifications
+
+**Example workflow for "Target detail window system":**
+- Phase A (blocking): Expand Target model with properties → Test target property schema
+- Phase B (blocking on A): Module filtering logic → Test filter rules per target
+- Phase C (blocking on A): Detail window component → Test window rendering
+- Phase D (blocking on C): Terminal emulator → Test emulator lifecycle
+- Phase E (parallel after B): MITRE filtering UI → Test filter interaction
+- Phase F (parallel): Theme refresh → Test color contrast
+- **All phases complete** → Write integration test for full "click target → see detail window → run module" flow
+- **Report**: 6 features implemented, 28 tests pass, no simplifications, ready for merge
