@@ -44,7 +44,7 @@ The agent will:
 2. Produce an `ARCHITECTURE.md` and wait for your approval.
 3. Build only the core loop once approved.
 
-### Adding a feature
+### Adding a feature (DEFAULT WORKFLOW ALWAYS APPLIED AFTER NEW PROJECT WORKFLOW)
 
 Point your agent at [`workflows/02-add-feature.md`](workflows/02-add-feature.md).
 
