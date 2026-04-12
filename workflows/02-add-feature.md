@@ -3,9 +3,24 @@
 Use this workflow when the core project loop exists and new functionality is requested.
 This is the default workflow after project creation is complete.
 
+### Agents Involved
+
+| Step | Agent | File |
+|---|---|---|
+| Step 1 — Feature Breakdown | Feature Planner Agent | [`.github/agents/feature-planner.md`](../.github/agents/feature-planner.md) |
+| Step 2 — Architecture Check | Architect Agent | [`.github/agents/architect.md`](../.github/agents/architect.md) |
+| Step 3 — Approval Gate | Orchestrator Agent | [`.github/agents/orchestrator.md`](../.github/agents/orchestrator.md) |
+| Step 4a — Write Tests | Tester Agent | [`.github/agents/tester.md`](../.github/agents/tester.md) |
+| Step 4b — Implement Feature | Implementor Agent | [`.github/agents/implementor.md`](../.github/agents/implementor.md) |
+| Step 4c — Update Architecture | Architect Agent | [`.github/agents/architect.md`](../.github/agents/architect.md) |
+| Step 5 — Integration Tests | Tester Agent | [`.github/agents/tester.md`](../.github/agents/tester.md) |
+| Subagent Coordination | Feature Planner Agent | [`.github/agents/feature-planner.md`](../.github/agents/feature-planner.md) |
+
 ---
 
 ## Step 1 — Feature Breakdown
+
+> → Delegates to **[Feature Planner Agent](../.github/agents/feature-planner.md)**
 
 **Goal:** Isolate each feature before touching any code.
 
@@ -21,6 +36,8 @@ Present the feature list to the user. Confirm the split is correct before contin
 
 ## Step 2 — Architecture Check
 
+> → Delegates to **[Architect Agent](../.github/agents/architect.md)**
+
 **Goal:** Confirm each feature fits the current architecture.
 
 Read `ARCHITECTURE.md`. For each feature:
@@ -35,6 +52,8 @@ Report findings to the user. If architectural changes are needed, propose them a
 ---
 
 ## Step 3 — Approval Gate
+
+> → Managed by **[Orchestrator Agent](../.github/agents/orchestrator.md)**
 
 Present a concise plan for each feature:
 - What will be added or changed.
@@ -52,23 +71,34 @@ Present a concise plan for each feature:
 For each approved feature (in order):
 
 ### 4a. Write tests
+
+> → Delegates to **[Tester Agent](../.github/agents/tester.md)**
+
 - Write unit tests covering the expected behavior of the feature.
 - Tests must fail before implementation (red).
 - Commit the failing tests.
 
 ### 4b. Implement the feature
+
+> → Delegates to **[Implementor Agent](../.github/agents/implementor.md)**
+
 - Write the simplest code that makes the tests pass.
 - Keep it modular — the feature must not tangle with unrelated code.
 - Add straightforward comments where the logic is not obvious.
 - Commit when all tests pass (green).
 
 ### 4c. Update `ARCHITECTURE.md`
+
+> → Delegates to **[Architect Agent](../.github/agents/architect.md)**
+
 - Change the feature status from `[NOT IMPLEMENTED]` to `[IMPLEMENTED]`.
 - If it was a new feature (not previously listed), add it with `[IMPLEMENTED]`.
 
 ---
 
 ## Step 5 — Integration Tests
+
+> → Delegates to **[Tester Agent](../.github/agents/tester.md)**
 
 After all individual features are implemented and their unit tests pass:
 
@@ -88,6 +118,8 @@ Tell the user:
 
 
 ## Subagent Coordination (Multi-Phase Features)
+
+> → Coordinated by **[Feature Planner Agent](../.github/agents/feature-planner.md)** using **[Implementor](../.github/agents/implementor.md) + [Tester](../.github/agents/tester.md)** pairs
 
 When implementing large features with multiple interconnected sub-components:
 

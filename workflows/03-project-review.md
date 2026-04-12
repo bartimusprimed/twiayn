@@ -2,9 +2,19 @@
 
 Use this workflow when the codebase needs optimization or simplification — not new features.
 
+### Agents Involved
+
+| Step | Agent | File |
+|---|---|---|
+| Steps 1–4 | Reviewer Agent | [`.github/agents/reviewer.md`](../.github/agents/reviewer.md) |
+| Step 4 (code changes) | Implementor Agent | [`.github/agents/implementor.md`](../.github/agents/implementor.md) |
+| Step 5 (report) | Orchestrator Agent | [`.github/agents/orchestrator.md`](../.github/agents/orchestrator.md) |
+
 ---
 
 ## Step 1 — Audit
+
+> → Delegates to **[Reviewer Agent](../.github/agents/reviewer.md)**
 
 Read the entire codebase. Look for:
 
@@ -21,6 +31,8 @@ Do not change anything yet.
 
 ## Step 2 — Present the Plan
 
+> → Delegates to **[Reviewer Agent](../.github/agents/reviewer.md)**
+
 Write a change plan and show it to the user before touching any code.
 
 For each proposed change include:
@@ -35,6 +47,8 @@ Group changes by risk level. Present high-risk changes separately and wait for i
 ---
 
 ## Step 3 — Track Changes
+
+> → Delegates to **[Reviewer Agent](../.github/agents/reviewer.md)**
 
 Create `SIMPLIFICATIONS.md` in the repo root (or append to it if it already exists).
 
@@ -54,6 +68,8 @@ Commit `SIMPLIFICATIONS.md` before making any code changes.
 
 ## Step 4 — Apply Changes
 
+> → Delegates to **[Reviewer Agent](../.github/agents/reviewer.md)** + **[Implementor Agent](../.github/agents/implementor.md)**
+
 Apply one logical group at a time. After each group:
 
 1. Run the full test suite.
@@ -63,6 +79,8 @@ Apply one logical group at a time. After each group:
 ---
 
 ## Step 5 — Report Back
+
+> → Managed by **[Orchestrator Agent](../.github/agents/orchestrator.md)**
 
 Tell the user:
 - What was changed.
