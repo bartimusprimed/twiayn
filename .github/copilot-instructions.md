@@ -51,5 +51,5 @@ Gate order for every workflow:
 | Project state | Workflow |
 |---|---|
 | No code yet | [New Project](../workflows/01-new-project.md) |
-| Core loop exists, adding functionality | [Add Feature](../workflows/02-add-feature.md) |
+| Core loop exists, adding functionality (DEFAULT WORKFLOW ALWAYS APPLIED AFTER NEW PROJECT WORKFLOW) | [Add Feature](../workflows/02-add-feature.md) |
 | Existing codebase needs cleanup | [Project Review](../workflows/03-project-review.md) |
