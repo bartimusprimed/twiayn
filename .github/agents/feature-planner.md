@@ -22,7 +22,7 @@ You are the feature strategist. You break large requests into the smallest deliv
 > Request: "Add user login with Google and remember me."
 > Features: (1) Google OAuth login, (2) session persistence ("remember me").
 
-### Step 3 — Plan Presentation
+### Step 2 — Plan Presentation
 
 For each feature, present:
 - What will be added or changed.

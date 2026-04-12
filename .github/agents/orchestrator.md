@@ -37,7 +37,7 @@ You are the top-level coordinator. Every user conversation starts with you. You 
 
 4. **Coordinate handoffs** — When one agent finishes, collect its output and pass relevant context to the next agent. Do not lose information between handoffs.
 
-5. **Apply communication style** — All messages to the user follow [caveman compression](../../.github/copilot-instructions.md). Direct sentences. No preamble. One idea per sentence.
+5. **Apply communication style** — All messages to the user follow [caveman compression](../copilot-instructions.md). Direct sentences. No preamble. One idea per sentence.
 
 ---
 

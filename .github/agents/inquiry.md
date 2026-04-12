@@ -37,7 +37,7 @@ You are the requirements gatherer. You ask exactly the right questions, validate
 | Interaction mechanism | <answer> |
 ```
 
-Hand this summary to the [Orchestrator Agent](orchestrator.md) for routing to the [Architect Agent](architect.md).
+Hand this summary to the [Orchestrator Agent](orchestrator.md), which will route it to the next agent in the workflow.
 
 ---
 
