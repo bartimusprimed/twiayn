@@ -2,9 +2,20 @@
 
 Use this workflow when starting from a blank or near-blank repository.
 
+### Agents Involved
+
+| Phase | Agent | File |
+|---|---|---|
+| Phase 1 — Inquiry | Inquiry Agent | [`.github/agents/inquiry.md`](../.github/agents/inquiry.md) |
+| Phase 2 — Architecture | Architect Agent | [`.github/agents/architect.md`](../.github/agents/architect.md) |
+| Phase 3 — Core Loop | Implementor Agent + Tester Agent | [`.github/agents/implementor.md`](../.github/agents/implementor.md), [`.github/agents/tester.md`](../.github/agents/tester.md) |
+| All phases | Orchestrator Agent | [`.github/agents/orchestrator.md`](../.github/agents/orchestrator.md) |
+
 ---
 
 ## Phase 1 — Inquiry
+
+> → Delegates to **[Inquiry Agent](../.github/agents/inquiry.md)**
 
 **Goal:** Understand the project before touching any code.
 
@@ -29,6 +40,8 @@ Ask the user exactly these questions. Get answers before moving on.
 
 ## Phase 2 — Architecture Deliverable
 
+> → Delegates to **[Architect Agent](../.github/agents/architect.md)**
+
 **Goal:** Produce a written plan the user approves before any code is written.
 
 ### What to produce
@@ -52,6 +65,8 @@ Fill in the [architecture template](../templates/architecture.md) with:
 ---
 
 ## Phase 3 — Core Loop Implementation
+
+> → Delegates to **[Implementor Agent](../.github/agents/implementor.md)** (build core loop) then **[Tester Agent](../.github/agents/tester.md)** (smoke test)
 
 **Goal:** Build only the core loop. Nothing else.
 

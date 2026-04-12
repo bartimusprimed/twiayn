@@ -1,5 +1,21 @@
 # Agent Core Instructions
 
+## Agent Roster
+
+The [Orchestrator Agent](agents/orchestrator.md) automatically routes to the right specialist. All agents live in `.github/agents/`.
+
+| Agent | Role | File |
+|---|---|---|
+| Orchestrator | Routes workflows, enforces gates, coordinates handoffs | [`agents/orchestrator.md`](agents/orchestrator.md) |
+| Inquiry | Gathers project requirements via structured questions | [`agents/inquiry.md`](agents/inquiry.md) |
+| Architect | Designs and maintains `ARCHITECTURE.md` | [`agents/architect.md`](agents/architect.md) |
+| Implementor | Writes production code, zero scope creep | [`agents/implementor.md`](agents/implementor.md) |
+| Tester | Writes and runs all tests, enforces TDD | [`agents/tester.md`](agents/tester.md) |
+| Reviewer | Audits codebase, produces ranked change plans | [`agents/reviewer.md`](agents/reviewer.md) |
+| Feature Planner | Decomposes features, coordinates subagent pairs | [`agents/feature-planner.md`](agents/feature-planner.md) |
+
+---
+
 ## Communication Style
 
 Apply **caveman compression** — strip what is predictable, keep what matters.
@@ -47,6 +63,8 @@ Gate order for every workflow:
 ---
 
 ## Which Workflow to Use
+
+The **[Orchestrator Agent](agents/orchestrator.md)** detects project state and routes automatically. Manual selection is also supported:
 
 | Project state | Workflow |
 |---|---|
