@@ -7,6 +7,7 @@ This is the default workflow after project creation is complete.
 
 | Step | Agent | File |
 |---|---|---|
+| Step 0 — Product Brief | Feature Planner Agent | [`.github/agents/feature-planner.md`](../.github/agents/feature-planner.md) |
 | Step 1 — Feature Breakdown | Feature Planner Agent | [`.github/agents/feature-planner.md`](../.github/agents/feature-planner.md) |
 | Step 2 — Architecture Check | Architect Agent | [`.github/agents/architect.md`](../.github/agents/architect.md) |
 | Step 3 — Approval Gate | Orchestrator Agent | [`.github/agents/orchestrator.md`](../.github/agents/orchestrator.md) |
@@ -14,7 +15,33 @@ This is the default workflow after project creation is complete.
 | Step 4b — Implement Feature | Implementor Agent | [`.github/agents/implementor.md`](../.github/agents/implementor.md) |
 | Step 4c — Update Architecture | Architect Agent | [`.github/agents/architect.md`](../.github/agents/architect.md) |
 | Step 5 — Integration Tests | Tester Agent | [`.github/agents/tester.md`](../.github/agents/tester.md) |
+| Step 6 — Report Back | Orchestrator Agent | [`.github/agents/orchestrator.md`](../.github/agents/orchestrator.md) |
+| Step 6b — Verify Instrumentation | Feature Planner Agent | [`.github/agents/feature-planner.md`](../.github/agents/feature-planner.md) |
 | Subagent Coordination | Feature Planner Agent | [`.github/agents/feature-planner.md`](../.github/agents/feature-planner.md) |
+
+---
+
+## Step 0 — Product Brief
+
+> → Delegates to **[Feature Planner Agent](../.github/agents/feature-planner.md)**
+
+**Goal:** Confirm the problem is worth solving before any feature work begins.
+
+For the incoming request, confirm or collect answers to:
+
+1. **Problem** — Whose pain are we solving, in one sentence?
+2. **Why now** — What changed? What evidence or trigger exists?
+3. **Assumptions** — What are we taking as true that has not been validated? (2–3 per feature)
+4. **Success metric** — The one number we expect to move.
+5. **Reversibility** — One-way or two-way door?
+
+If a Product Brief was already provided in the Inquiry Summary, use it — do not re-ask answered questions.
+
+### Gate
+
+Present a **Product Brief** summary to the user. Wait for explicit confirmation — or an explicit "skip with justification" — before proceeding to Step 1.
+
+Acceptable skip justification: typo fix, obvious bug, comment-only change. For anything else, the Product Brief is required.
 
 ---
 
@@ -115,6 +142,29 @@ Tell the user:
 - Test counts and pass status.
 - Any simplifications made to existing code.
 - Next recommended action.
+
+---
+
+## Step 6b — Verify Instrumentation
+
+> → Delegates to **[Feature Planner Agent](../.github/agents/feature-planner.md)**
+
+After reporting completion, verify that the success metric defined in Step 0 is measurable in the shipped change.
+
+Check:
+- [ ] Is the north-star metric observable in production (logs, analytics, counters)?
+- [ ] Was instrumentation shipped in the same change as the feature?
+- [ ] Is there a defined baseline and time horizon for checking the metric?
+
+If any item is unmet, flag it as a gap in the report. Do not block the merge — but the gap must be named and tracked.
+
+```markdown
+## Instrumentation Check
+
+| Metric | Observable? | Shipped with feature? | Baseline defined? | Gap |
+|---|---|---|---|---|
+| <metric> | Yes / No | Yes / No | Yes / No | <description or "none"> |
+```
 
 
 ## Subagent Coordination (Multi-Phase Features)
