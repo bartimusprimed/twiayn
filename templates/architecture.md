@@ -12,6 +12,33 @@
 
 ---
 
+## Problem Statement
+
+<!-- One sentence: whose pain are we solving, and what changes for them when this project succeeds.
+     Example: "Freelance developers waste hours manually tracking client invoices; this project automates that." -->
+
+---
+
+## Success Metrics
+
+| Metric | Value |
+|---|---|
+| North-star metric | <!-- The one number we expect to move --> |
+| Baseline | <!-- Current value (from data, not vibes) --> |
+| Expected direction & size | <!-- e.g. +5% conversion, –20% latency --> |
+| Time horizon | <!-- When we check: 7 days? 30? --> |
+| Guardrail metrics | <!-- What must NOT get worse --> |
+
+---
+
+## Assumptions
+
+| Assumption | Status | Owner |
+|---|---|---|
+| <!-- State the assumption --> | `validated` / `assumed` / `unknown` | |
+
+---
+
 ## Configuration
 
 | Dimension | Decision | Notes |
@@ -63,3 +90,9 @@ project-root/
 | Date | Change | Author |
 |---|---|---|
 | | Initial architecture created | |
+
+---
+
+## Decision Log
+
+Non-trivial architectural decisions are tracked in [`DECISIONS.md`](../DECISIONS.md) using the [decision log template](decision-log.md). See that file for the full record of one-way-door and significant two-way-door decisions.

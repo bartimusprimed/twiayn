@@ -62,6 +62,41 @@ Gate order for every workflow:
 
 ---
 
+## Product Pre-Flight Checklist
+
+Before writing or requesting any non-trivial code, every box below must have an answer. If a box is empty, either fill it — or explicitly flag that we are proceeding without it and why.
+
+- [ ] **Problem** — Whose pain are we solving, in one sentence?
+- [ ] **Why now** — What changed? (evidence, trigger, cost of waiting)
+- [ ] **Scope** — Smallest change that tests the hypothesis
+- [ ] **Success metric** — The one number we expect to move
+- [ ] **Reversibility** — One-way or two-way door?
+
+### When to Skip This Rigor
+
+| Change type | Apply |
+|---|---|
+| Typo, comment, obvious one-liner | None — just do it |
+| Bug fix, small internal refactor | Problem + Scope + Success metric |
+| New user-facing feature | All five checklist items |
+| Architecture, public API, data model, pricing | All five + explicit one-way-door sign-off |
+
+### The Seven Product Principles
+
+These principles prevent "shipping the wrong thing, well." They apply to every non-trivial feature.
+
+| # | Principle | What it prevents |
+|---|---|---|
+| 1 | **Frame the Problem Before the Solution** | Building for the wrong user |
+| 2 | **Make Assumptions & Unknowns Visible** | Silent guessing |
+| 3 | **Ship the Minimum Viable Change** | Scope creep, gold-plating |
+| 4 | **Name the Tradeoffs** | Invisible costs, decisions made without visibility |
+| 5 | **Define Done by Outcome, Not Output** | "Merged" mistaken for "done" |
+| 6 | **Instrument Before You Ship** | Shipping blind |
+| 7 | **Log the Decision, Flag Reversibility** | Repeating mistakes, calcifying defaults |
+
+---
+
 ## Which Workflow to Use
 
 The **[Orchestrator Agent](agents/orchestrator.md)** detects project state and routes automatically. Manual selection is also supported:

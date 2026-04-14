@@ -6,10 +6,35 @@ Use this workflow when starting from a blank or near-blank repository.
 
 | Phase | Agent | File |
 |---|---|---|
+| Phase 0 — Product Brief | Inquiry Agent | [`.github/agents/inquiry.md`](../.github/agents/inquiry.md) |
 | Phase 1 — Inquiry | Inquiry Agent | [`.github/agents/inquiry.md`](../.github/agents/inquiry.md) |
 | Phase 2 — Architecture | Architect Agent | [`.github/agents/architect.md`](../.github/agents/architect.md) |
 | Phase 3 — Core Loop | Implementor Agent + Tester Agent | [`.github/agents/implementor.md`](../.github/agents/implementor.md), [`.github/agents/tester.md`](../.github/agents/tester.md) |
 | All phases | Orchestrator Agent | [`.github/agents/orchestrator.md`](../.github/agents/orchestrator.md) |
+
+---
+
+## Phase 0 — Product Brief
+
+> → Delegates to **[Inquiry Agent](../.github/agents/inquiry.md)**
+
+**Goal:** Confirm the problem worth solving before any technical scoping begins.
+
+Ask the user exactly these five questions. Get answers before moving to Phase 1.
+
+### Required questions
+
+1. **Problem** — Whose pain are we solving, in one sentence?
+2. **Why now** — What changed? What evidence or trigger exists? What is the cost of waiting?
+3. **Assumptions** — What are we taking as true that has not been validated?
+4. **Success metric** — The one number we expect to move.
+5. **Reversibility** — Is this a one-way door (costly to undo) or a two-way door (easily reversed)?
+
+### Gate
+
+Present the answers back to the user as a **Product Brief** summary. Wait for explicit confirmation that the problem statement and success metric are correct.
+
+**Do not proceed to Phase 1 until the user confirms the Product Brief.**
 
 ---
 
